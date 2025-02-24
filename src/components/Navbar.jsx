@@ -18,17 +18,17 @@ const Navbar = () => {
   return (
     <>
         <div className='fixed w-full bg-gray-50'>
-            <div className='p-2 sm:p-4 md:p-6 flex items-center justify-between text-center'>
+            <div className='p-3 sm:p-4 md:p-6 flex items-center justify-between text-center'>
               <div className='flex gap-2 items-center text-center'>
                 <motion.img 
                   src={LogoIcon} 
-                  className='h-12 w-12'
+                  className='h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12'
                   initial={{ rotate: 0, scale: 0.5}}
                   animate={{ rotate: 360, scale: 1 }}
                   transition={{ duration: 1, ease: "backInOut", type: "spring", damping: 8 }}
                   />
                   <motion.h2 
-                  className='sm:text-3xl md-text-xl text-md tracking-wider font-bold'
+                  className='sm:text-3xl md-text-xl text-2xl tracking-wider font-bold'
                   >
                       Remember Me?
                   </motion.h2>

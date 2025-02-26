@@ -3,6 +3,9 @@
 ### A memory-based game.
 ### Created for the React section assignment of The Odin Project.
 
+## [Live Link](https://satyamkr02-rememember-me.netlify.app/)
+
+
 
 ### Tech Stack: 
 

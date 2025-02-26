@@ -1,42 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageCard from './image-card';
+import fetchPopularMovies from '@/services/fetchPopularMovies';
+
+
+
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const Cards = () => {
+
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const movieData = await fetchPopularMovies();
+      setMovies(movieData);
+    };
+
+    getMovies();
+  }, []);
+
+
+
   return (
     <>  
         <div className='grid gap-6 grid-cols-4'>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
-            <ImageCard
-            caption="Image"
-            imageUrl="https://hips.hearstapps.com/hmg-prod/images/flowers-trees-and-bushes-reach-their-peak-of-full-bloom-in-news-photo-1678292967.jpg?resize=300:*">
-            </ImageCard>
+          {movies.map((movie) => (
+              <ImageCard
+                key={movie.id}
+                caption={movie.title}
+                imageUrl={`${IMAGE_BASE_URL}${movie.poster_path}`} >
+              </ImageCard>
+          ))}
+
         </div>
 
     </>

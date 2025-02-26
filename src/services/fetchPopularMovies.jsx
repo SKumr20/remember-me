@@ -1,7 +1,7 @@
 const API_KEY = import.meta.env.VITE_TMDB_API;
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
-const fetchPopularMovies = async (count = 8) => {
+const fetchPopularMovies = async (count = 10) => {
     try {
 
         // fetch random page of movies

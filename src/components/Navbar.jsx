@@ -47,7 +47,7 @@ const Navbar = () => {
                         <DrawerFooter className="grid grid-cols-2">
                           <DrawerClose asChild>
                             <Button className="bg-bw text-text" variant="noShadow">
-                              Cancel
+                              Close
                             </Button>
                           </DrawerClose>
                         </DrawerFooter>
